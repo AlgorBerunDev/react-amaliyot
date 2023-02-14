@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Main({ visible, count, children }) {
+export default function Main({ children, visible, count }) {
   return (
     <div>
       <h1>Main</h1>
