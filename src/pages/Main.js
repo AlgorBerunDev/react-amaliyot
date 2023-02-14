@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
+import LoginForm from "../modules/forms/LoginForm";
 
 export default function Main({ children, visible, count }) {
   return (
     <div>
-      <h1>Main</h1>
-      {children}
-      <h3>Visible: {JSON.stringify({ visible, count })}</h3>
+      <LoginForm />
     </div>
   );
 }
