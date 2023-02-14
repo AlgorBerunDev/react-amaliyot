@@ -1,25 +1,11 @@
 import React, { useState } from "react";
 
-export default function Main() {
-  const [count, setCount] = useState({ value: 23 });
-
-  const increment = () => {
-    setCount(function (oldCount) {
-      return { value: oldCount.value + 1 };
-    });
-  };
-
-  const decrement = () => {
-    setCount(function (oldCount) {
-      return { value: oldCount.value - 1 };
-    });
-  };
+export default function Main(props) {
+  console.log("props", props);
 
   return (
     <div>
-      <h1>Increment {count.value}</h1>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
+      <h1>Main</h1>
     </div>
   );
 }
