@@ -15,7 +15,9 @@ export default function App() {
 
   return (
     <div>
-      <Main visible={visible} count={count} />
+      <Main visible={visible} count={count}>
+        <p>Paragraph</p>
+      </Main>
       <button onClick={toggleVisibility}>toggle</button>
       <button onClick={incrementCount}>increment</button>
     </div>
