@@ -27,7 +27,7 @@ export default function Main() {
         <Row gutter={16}>
           <Col span={6}>
             <Form.Item name="content">
-              <Input name="content" rules={[{ required: true, message: "Iltimos todo nomini kiriting!" }]} />
+              <Input rules={[{ required: true, message: "Iltimos todo nomini kiriting!" }]} />
             </Form.Item>
           </Col>
           <Col span={3}>
