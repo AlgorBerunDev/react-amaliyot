@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Input, Row, Col, Button, Divider, Form } from "antd";
 import List from "../modules/list/List";
 
 export default function Main() {
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(JSON.parse(localStorage.getItem("todoList")));
   const [lastIndex, setLastIndex] = useState(0);
   const [form] = Form.useForm();
 
@@ -26,6 +26,14 @@ export default function Main() {
   const onFinishFailed = errorInfo => {
     console.log("Failed:", errorInfo);
   };
+
+  const saveList = () => {
+    localStorage.setItem("todoList", JSON.stringify(list));
+  };
+
+  useEffect(() => {
+    if (list.length > 0) saveList();
+  }, [list]);
 
   return (
     <div style={{ padding: 10 }}>
