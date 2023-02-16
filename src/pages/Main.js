@@ -1,10 +1,47 @@
-import React from "react";
-import LoginForm from "../modules/forms/LoginForm";
+import React, { useState } from "react";
+import { Input, Row, Col, Button, Divider, Form } from "antd";
+import List from "../modules/list/List";
 
-export default function Main({ children, visible, count }) {
+export default function Main() {
+  const [list, setList] = useState([]);
+  const [lastIndex, setLastIndex] = useState(0);
+  const [form] = Form.useForm();
+
+  const addTodo = ({ content }) => {
+    setLastIndex(oldLastIndex => oldLastIndex + 1);
+    setList(oldList => [...oldList, { id: lastIndex, content }]);
+  };
+
+  const onFinish = values => {
+    addTodo(values);
+    form.resetFields();
+  };
+
+  const onFinishFailed = errorInfo => {
+    console.log("Failed:", errorInfo);
+  };
+
   return (
-    <div>
-      <LoginForm />
+    <div style={{ padding: 10 }}>
+      <Form form={form} name="basic" onFinish={onFinish} onFinishFailed={onFinishFailed}>
+        <Row gutter={16}>
+          <Col span={6}>
+            <Form.Item name="content">
+              <Input name="content" rules={[{ required: true, message: "Iltimos todo nomini kiriting!" }]} />
+            </Form.Item>
+          </Col>
+          <Col span={3}>
+            <Button type="primary" htmlType="submit">
+              Add todo{" "}
+            </Button>
+          </Col>
+          <Col span={2}>
+            <Button htmlType="reset">Reset</Button>
+          </Col>
+        </Row>
+      </Form>
+      <Divider />
+      <List data={list} />
     </div>
   );
 }
