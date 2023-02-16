@@ -12,6 +12,12 @@ export default function Main() {
     setList(oldList => [...oldList, { id: lastIndex, content }]);
   };
 
+  const removeTodo = id => {
+    setList(function (old) {
+      return old.filter(item => item.id !== id);
+    });
+  };
+
   const onFinish = values => {
     addTodo(values);
     form.resetFields();
@@ -41,7 +47,7 @@ export default function Main() {
         </Row>
       </Form>
       <Divider />
-      <List data={list} />
+      <List data={list} removeItem={removeTodo} />
     </div>
   );
 }

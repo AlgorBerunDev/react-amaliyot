@@ -1,6 +1,6 @@
-import { List as ListAnt } from "antd";
+import { List as ListAnt, Button } from "antd";
 
-const List = ({ data = [] }) => (
+const List = ({ data = [], removeItem = () => {} }) => (
   <>
     <ListAnt
       size="large"
@@ -8,7 +8,15 @@ const List = ({ data = [] }) => (
       dataSource={data}
       renderItem={item => (
         <ListAnt.Item>
-          {item.id} {item.content}
+          {item.id} {item.content}{" "}
+          <Button
+            type="primary"
+            onClick={() => {
+              removeItem(item.id);
+            }}
+          >
+            Remove
+          </Button>
         </ListAnt.Item>
       )}
     />
