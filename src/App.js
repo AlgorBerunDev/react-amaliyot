@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
-import Main from "./pages/Main";
+import React from "react";
+import Router from "./Router";
+import "./css/layout.css";
 
 export default function App() {
   return (
     <>
-      <Main />
+      <Router />
     </>
   );
 }
