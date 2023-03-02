@@ -2,17 +2,34 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 function ClassroomPage() {
-  const { count } = useSelector(state => state);
-
+  const { user } = useSelector(state => state);
+  console.log(user);
   const {
-    count: { increment, incrementAsync },
+    user: { addUser },
   } = useDispatch();
 
   return (
     <>
-      <h1>Counter {count} </h1>
-      <button onClick={() => incrementAsync(1)}>Increment Async</button>
-      <button onClick={() => increment(1)}>Increment</button>
+      <ul>
+        {user.collection.map(collectionItem => {
+          return (
+            <li key={collectionItem.id}>
+              <pre>{JSON.stringify(collectionItem, null, 2)}</pre>
+            </li>
+          );
+        })}
+      </ul>
+      <button
+        onClick={() =>
+          addUser({
+            email: "test@test.com",
+            firstName: "test",
+            lastName: "test-last",
+          })
+        }
+      >
+        Create User
+      </button>
     </>
   );
 }
