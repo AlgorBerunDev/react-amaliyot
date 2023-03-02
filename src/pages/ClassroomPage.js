@@ -1,5 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
 import getFormFields from "../utils/helpers/getFormFields";
 
 function ClassroomPage() {
@@ -15,11 +17,19 @@ function ClassroomPage() {
 
   return (
     <>
-      <form id="myForm">
-        <input name="firstName" />
-        <input name="lastName" />
-        <input name="email" type="email" />
-      </form>
+      <Box
+        component="form"
+        sx={{
+          "& > :not(style)": { m: 1, width: "25ch" },
+        }}
+        noValidate
+        autoComplete="off"
+        id="myForm"
+      >
+        <TextField name="outlined" label="Outlined" variant="outlined" />
+        <TextField name="filled" label="Filled" variant="filled" />
+        <TextField name="standard" label="Standard" variant="standard" />
+      </Box>
       <button onClick={() => printFormFields("myForm")}>Print </button>
     </>
   );
