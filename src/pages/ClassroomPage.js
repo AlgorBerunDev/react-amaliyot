@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import getFormFields from "../utils/helpers/getFormFields";
 
 function ClassroomPage() {
   const { user } = useSelector(state => state);
@@ -8,28 +9,18 @@ function ClassroomPage() {
     user: { addUser },
   } = useDispatch();
 
+  const printFormFields = formId => {
+    console.log(getFormFields(formId));
+  };
+
   return (
     <>
-      <ul>
-        {user.collection.map(collectionItem => {
-          return (
-            <li key={collectionItem.id}>
-              <pre>{JSON.stringify(collectionItem, null, 2)}</pre>
-            </li>
-          );
-        })}
-      </ul>
-      <button
-        onClick={() =>
-          addUser({
-            email: "test@test.com",
-            firstName: "test",
-            lastName: "test-last",
-          })
-        }
-      >
-        Create User
-      </button>
+      <form id="myForm">
+        <input name="firstName" />
+        <input name="lastName" />
+        <input name="email" type="email" />
+      </form>
+      <button onClick={() => printFormFields("myForm")}>Print </button>
     </>
   );
 }
