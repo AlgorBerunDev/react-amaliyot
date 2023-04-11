@@ -5,7 +5,7 @@ export default function getFormFields(formId) {
   for (var i = 0; i < form.elements.length; i++) {
     var fieldName = form.elements[i].name;
     var fieldValue = form.elements[i].value;
-    formFields[fieldName] = fieldValue;
+    if (fieldName !== "") formFields[fieldName] = fieldValue;
   }
 
   return formFields;

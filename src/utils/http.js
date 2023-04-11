@@ -11,7 +11,7 @@ const handleError = (err, errorHandler, finishHandler, dispatch) => {
 };
 
 export default async function http({ url, method, data, success, error, finish, dispatch, showSuccessToast = false }) {
-  const response = await axios({ url, method, data, baseURL: "http://localhost:3001" })
+  const response = await axios({ url, method, data, baseURL: "http://localhost:3000" })
     .then(res => handleSuccess(res, success, finish, dispatch, showSuccessToast))
     .catch(err => handleError(err, error, finish, dispatch));
 
