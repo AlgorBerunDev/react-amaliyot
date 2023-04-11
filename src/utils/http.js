@@ -8,6 +8,7 @@ const handleSuccess = (response, successHandler, finishHandler, dispatch, showSu
 
 const handleError = (err, errorHandler, finishHandler, dispatch) => {
   console.error(err?.response?.status);
+  errorHandler(err);
 };
 
 export default async function http({ url, method, data, success, error, finish, dispatch, showSuccessToast = false }) {

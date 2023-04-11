@@ -1,27 +1,30 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Signin from "./pages/Signin";
-import Signup from "./pages/Signup";
 import MainLayout from "./layouts/MainLayout";
-import Auth from "./modules/auth";
 import routes from "./routes";
+import Layout, { LayoutType } from "./layouts/Layout";
+
+const UnauthorizedPage = () => {
+  return <h1>Access Denied</h1>;
+};
+
+const PrivateRoute = ({ isPrivate, children }) => {
+  if (!isPrivate) return <>{children}</>;
+  if (!localStorage.getItem("access_token")) return <UnauthorizedPage />;
+  return <>{children}</>;
+};
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Auth} />
-        {routes.map(({ path, children }) => (
-          <Route path={path} key={path}>
-            <MainLayout>{children}</MainLayout>
+        {routes.map(({ isPrivate = false, layoutType = LayoutType.default, path, children }) => (
+          <Route exact path={path} key={path}>
+            <PrivateRoute isPrivate={isPrivate}>
+              <Layout type={layoutType}>{children}</Layout>
+            </PrivateRoute>
           </Route>
         ))}
-        <Route path="/signin">
-          <Signin />
-        </Route>
-        <Route path="/signup">
-          <Signup />
-        </Route>
       </Switch>
     </BrowserRouter>
   );

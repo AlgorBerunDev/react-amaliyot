@@ -1,7 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 export default function AppBar() {
+  const history = useHistory();
+  const handleLogout = () => {
+    localStorage.removeItem("access_token");
+    history.push("signin");
+  };
   return (
     <ul className="navbar">
       <li>
@@ -15,6 +20,9 @@ export default function AppBar() {
       </li>
       <li>
         <Link to="/signup">Sign up</Link>
+      </li>
+      <li>
+        <button onClick={() => handleLogout()}>Logout</button>
       </li>
     </ul>
   );
