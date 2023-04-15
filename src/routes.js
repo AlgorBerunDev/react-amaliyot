@@ -3,6 +3,7 @@ import ClassroomPage from "./pages/ClassroomPage";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import { LayoutType } from "./layouts/Layout";
+import PostPage from "./pages/PostPage";
 
 const routes = [
   {
@@ -10,6 +11,12 @@ const routes = [
     isPrivate: true,
     layoutType: LayoutType.main,
     children: <EstablishmentPage />,
+  },
+  {
+    path: "/posts",
+    isPrivate: true,
+    layoutType: LayoutType.main,
+    children: <PostPage />,
   },
   {
     path: "/classrooms",
