@@ -1,14 +1,13 @@
 import React from "react";
 import { Provider } from "react-redux";
-import Router from "./Router";
 import store from "./store";
-import "./css/layout.css";
+import MainPage from "./pages/main.page";
 
 export default function App() {
   return (
     <>
       <Provider store={store}>
-        <Router />
+        <MainPage />
       </Provider>
     </>
   );
