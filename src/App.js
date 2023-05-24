@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
-import Main from "./pages/Main";
+import React from "react";
+import { Provider } from "react-redux";
+import store from "./store";
+import MainPage from "./pages/main.page";
 
 export default function App() {
   return (
     <>
-      <Main />
+      <Provider store={store}>
+        <MainPage />
+      </Provider>
     </>
   );
 }
