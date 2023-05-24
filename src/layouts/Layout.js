@@ -8,6 +8,8 @@ export const LayoutType = {
 
 const Layout = ({ type = LayoutType.default, children }) => {
   switch (type) {
+    case LayoutType.none:
+      return <>{children}</>;
     case LayoutType.main:
       return <MainLayout>{children}</MainLayout>;
     case LayoutType.mainV2:

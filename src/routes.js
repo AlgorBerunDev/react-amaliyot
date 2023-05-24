@@ -4,8 +4,15 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import { LayoutType } from "./layouts/Layout";
 import PostPage from "./pages/PostPage";
+import DefaultPage from "./pages/DefaultPage";
 
 const routes = [
+  {
+    path: "/",
+    isPrivate: false,
+    layoutType: LayoutType.none,
+    children: <DefaultPage />,
+  },
   {
     path: "/establishments",
     isPrivate: true,
