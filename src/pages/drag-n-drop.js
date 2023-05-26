@@ -33,6 +33,8 @@ const DropTarget = ({ onDrop, children }) => {
   );
 };
 
+
+
 const DragAndDrop = () => {
   const [items, setItems] = useState([
     { id: "item1", text: "Item 1" },
@@ -40,17 +42,33 @@ const DragAndDrop = () => {
     { id: "item3", text: "Item 3" },
   ]);
 
+  const [item2, setItem2] = useState([{ id: "item4", text: "Item 4" }])
+
   const handleDrop = id => {
-    const updatedItems = items.filter(item => item.id !== id);
+   
+    setItem2(current2 => {
+      return [...current2,  items.find(item => item.id === id)]
+    })
+
+    const updatedItems = items.filter(item => item.id !== id );
     setItems(updatedItems);
+
   };
+
 
   return (
     <>
       {items.map(item => (
         <Item key={item.id} id={item.id} text={item.text} />
       ))}
-      <DropTarget onDrop={handleDrop}>Drop here</DropTarget>
+      <DropTarget onDrop={handleDrop}>
+       <div> Drop here</div>
+      {
+        item2.map(item => {
+          return <div key={item.id}>{item.text}</div>
+        })
+      }
+      </DropTarget>
     </>
   );
 };
