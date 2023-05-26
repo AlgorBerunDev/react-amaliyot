@@ -40,7 +40,13 @@ const DragAndDrop = () => {
     { id: "item3", text: "Item 3" },
   ]);
 
+  const [items2, setItems2] = useState([{ id: "item4", text: "Item 4" }]);
+
   const handleDrop = id => {
+    setItems2(currentItems2 => {
+      return [...currentItems2, items.find(item => item.id === id)];
+    });
+
     const updatedItems = items.filter(item => item.id !== id);
     setItems(updatedItems);
   };
@@ -50,7 +56,12 @@ const DragAndDrop = () => {
       {items.map(item => (
         <Item key={item.id} id={item.id} text={item.text} />
       ))}
-      <DropTarget onDrop={handleDrop}>Drop here</DropTarget>
+      <DropTarget onDrop={handleDrop}>
+        <div>Drop here</div>
+        {items2.map(item => {
+          return <div key={item.id}>{item.text}</div>;
+        })}
+      </DropTarget>
     </>
   );
 };
