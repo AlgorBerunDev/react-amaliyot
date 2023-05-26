@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 const Item = ({ id, text }) => {
 	const handleDragStart = (event) => {
-		console.log('DragStart', id);
 		event.dataTransfer.setData('text/plain', id);
 	};
 
@@ -26,7 +25,6 @@ const DropTarget = ({ onDrop, children }) => {
 	const handleDrop = (event) => {
 		event.preventDefault();
 		const id = event.dataTransfer.getData('text/plain');
-		console.log('handleDrop', id);
 		onDrop(id);
 	};
 
@@ -51,14 +49,11 @@ const DragAndDrop = () => {
 	const [items2, setItems2] = useState([]);
 
 	const handleDrop = (id) => {
-		const updatedItems = items.filter((item) => {
-      if(item.id === id) {
-        setItems2([...items2, ...[item]])
-        return false
-      }
-      return true;
-    });
+    setItems2(currentItems2 => {
+      return [...currentItems2, items.find(e => e.id === id)];
+    })
 
+		const updatedItems = items.filter((item) => item.id !== id);
 		setItems(updatedItems);
 	};
 
