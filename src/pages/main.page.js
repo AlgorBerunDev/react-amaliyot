@@ -1,5 +1,8 @@
 import React from "react";
+import KanbanContainer from "../moduls/kanban/kanban-container";
 
 export default function MainPage() {
-  return <div>Main page</div>;
+  return <div>
+    <KanbanContainer/>
+  </div>;
 }

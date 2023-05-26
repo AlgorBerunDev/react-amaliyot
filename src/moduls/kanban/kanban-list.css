@@ -1,0 +1,75 @@
+.kanban-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.kanban-list-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 10px;
+    gap: 10px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.kanban-list-item-component {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.kanban-list-item-component_header_title {
+    font-family: 'Avenir Next', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: -0.02em;
+    color: #171717;
+}
+
+.kanban-list-item-component_actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.kanban-list-item-component_labels {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.kanban-list-item-component_avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: aqua;
+}
+
+.kanban-list-item-component_avatar img {
+    width: 20px;
+    height: 20px;
+}
+
+.kanban-list-item-component_label {
+    display: flex;
+    align-items: center;
+    padding: 5px 4px;
+    background: #59B4D1;
+    border-radius: 2px;
+    font-family: 'Avenir Next', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 10px;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+}
