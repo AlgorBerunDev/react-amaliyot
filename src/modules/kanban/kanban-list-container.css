@@ -1,0 +1,8 @@
+
+
+.kanban-list-container {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  gap: 12px;
+}

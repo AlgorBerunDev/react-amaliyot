@@ -1,0 +1,25 @@
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+.kanban-header__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+
+.kanban-header__title::before {
+  display: block;
+  width: 16px;
+  height: 22px;
+  background-image: url('../../assets/images/laptop.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  content: '';
+}

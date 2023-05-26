@@ -1,5 +1,8 @@
-import React from "react";
+import React from 'react';
+import Kanban from '../modules/kanban/kanban';
 
 export default function MainPage() {
-  return <div>Main page</div>;
+	return (
+    <Kanban/>
+  );
 }
