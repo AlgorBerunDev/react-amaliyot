@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+body{
+    background-color: rgb(183, 228, 213);
+}
+
 .kanban_container{
     width: 100%;
     height: 100%;
