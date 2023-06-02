@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 const Item = ({ id, text }) => {
   const handleDragStart = event => {
-    console.log("DragStart", id);
     event.dataTransfer.setData("text/plain", id);
+    console.log("DragStart", id);
   };
 
   return (
@@ -13,8 +13,11 @@ const Item = ({ id, text }) => {
   );
 };
 
+
+
+
 const DropTarget = ({ onDrop, children }) => {
-  const handleDragOver = event => {
+  const handleDragOver = (event) => {
     event.preventDefault();
     event.dataTransfer.dropEffect = "move";
   };
@@ -32,6 +35,11 @@ const DropTarget = ({ onDrop, children }) => {
     </div>
   );
 };
+
+
+
+
+
 
 
 
@@ -62,7 +70,7 @@ const DragAndDrop = () => {
         <Item key={item.id} id={item.id} text={item.text} />
       ))}
       <DropTarget onDrop={handleDrop}>
-       <div> Drop here</div>
+       <div> Drop handle</div>
       {
         item2.map(item => {
           return <div key={item.id}>{item.text}</div>
