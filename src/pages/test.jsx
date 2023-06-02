@@ -34,7 +34,7 @@ const DropTarget = ({ onDrop, children }) => {
     <div
       style={{ border: "3px solid green" }}
       onDragOver={handleDragOver}
-      onDrag={handleDrop}
+      onDrop={handleDrop}
     >
       {children}
     </div>
@@ -59,7 +59,7 @@ export default function Test() {
     setItem(a);
   };
 
-  
+
   return (
     <div>
       {item.map((item) => {
