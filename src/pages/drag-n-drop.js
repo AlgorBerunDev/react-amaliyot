@@ -1,25 +1,29 @@
 import React, { useState } from "react";
 
 const Item = ({ id, text }) => {
-  const handleDragStart = event => {
+  const handleDragStart = (event) => {
     console.log("DragStart", id);
     event.dataTransfer.setData("text/plain", id);
   };
 
   return (
-    <div draggable onDragStart={handleDragStart} style={{ border: "2px solid green" }}>
+    <div
+      draggable
+      onDragStart={handleDragStart}
+      style={{ border: "2px solid green" }}
+    >
       {text}
     </div>
   );
 };
 
 const DropTarget = ({ onDrop, children }) => {
-  const handleDragOver = event => {
+  const handleDragOver = (event) => {
     event.preventDefault();
     event.dataTransfer.dropEffect = "move";
   };
 
-  const handleDrop = event => {
+  const handleDrop = (event) => {
     event.preventDefault();
     const id = event.dataTransfer.getData("text/plain");
     console.log("handleDrop", id);
@@ -27,7 +31,11 @@ const DropTarget = ({ onDrop, children }) => {
   };
 
   return (
-    <div style={{ border: "2px solid red" }} onDragOver={handleDragOver} onDrop={handleDrop}>
+    <div
+      style={{ border: "2px solid red" }}
+      onDragOver={handleDragOver}
+      onDrop={handleDrop}
+    >
       {children}
     </div>
   );
@@ -40,17 +48,30 @@ const DragAndDrop = () => {
     { id: "item3", text: "Item 3" },
   ]);
 
-  const handleDrop = id => {
-    const updatedItems = items.filter(item => item.id !== id);
+  const [items2, setItems2] = useState([{ id: "item4", text: "Item 4" }]);
+
+  const handleDrop = (id) => {
+    // setItems2(items2 => {
+    //   return [...items2, items.find(item => item.id === id)]
+    // })
+
+    setItems2((items2) => [...items2, items.find((item) => item.id === id)]);
+
+    const updatedItems = items.filter((item) => item.id !== id);
     setItems(updatedItems);
   };
 
   return (
     <>
-      {items.map(item => (
+      {items.map((item) => (
         <Item key={item.id} id={item.id} text={item.text} />
       ))}
-      <DropTarget onDrop={handleDrop}>Drop here</DropTarget>
+      <DropTarget onDrop={handleDrop}>
+        Drop here
+        {items2.map((item) => {
+          return <div key={item.id}>{item.text}</div>;
+        })}
+      </DropTarget>
     </>
   );
 };
