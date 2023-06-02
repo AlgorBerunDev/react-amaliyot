@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 const Item = ({ id, text }) => {
   const handleDragStart = event => {
-    console.log("DragStart", id);
     event.dataTransfer.setData("text/plain", id);
   };
 
@@ -22,7 +21,6 @@ const DropTarget = ({ onDrop, children }) => {
   const handleDrop = event => {
     event.preventDefault();
     const id = event.dataTransfer.getData("text/plain");
-    console.log("handleDrop", id);
     onDrop(id);
   };
 

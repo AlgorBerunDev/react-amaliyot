@@ -8,8 +8,8 @@ export default function App() {
   return (
     <>
       {/* <Provider store={store}> */}
-      {/* <MainPage /> */}
-      <DragAndDrop />
+      <MainPage />
+      {/* <DragAndDrop /> */}
       {/* </Provider> */}
     </>
   );
