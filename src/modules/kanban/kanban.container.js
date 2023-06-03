@@ -20,6 +20,7 @@ const genColumns = (columnCount = 10, rowCount = 10) => {
       });
     }
   }
+  console.log(result)
   return result;
 };
 export default function KanbanContainer() {
