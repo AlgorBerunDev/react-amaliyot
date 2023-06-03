@@ -25,6 +25,7 @@ const genColumns = (columnCount = 10, rowCount = 10) => {
 };
 export default function KanbanContainer() {
   const [columns, setColumns] = useState(genColumns());
+
   return (
     <div className="kanban-container">
       <div className="kanban-component">
@@ -34,7 +35,7 @@ export default function KanbanContainer() {
               <KanbanColumnHeaderContainer />
               <KanbanListContainer>
                 {column.tasks.map(task => {
-                  return <KanbanListItemContainer key={task.id} />;
+                  return <KanbanListItemContainer key={task.id} rowId={task.id} />;
                 })}
               </KanbanListContainer>
             </KanbanColumnContainer>

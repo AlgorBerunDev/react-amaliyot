@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function KanbanListItemComponent() {
+export default function KanbanListItemComponent({rowId}) {
   return (
     <div className="kanban-list-item-component">
       <div className="kanban-list-item-component__header">
-        <div className="kanban-list-item-component__title">Christmas Banners</div>
+        <div className="kanban-list-item-component__title">Christmas Banners {rowId}</div>
       </div>
       <div className="kanban-list-item-component__actions">
         <div className="kanban-list-item-component__avatar">
