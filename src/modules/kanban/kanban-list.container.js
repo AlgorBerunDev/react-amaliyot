@@ -4,19 +4,22 @@ import "./kanban-list.css";
 
 export default function KanbanListContainer({ children }) {
 
-  const handleDrop = (event) => {
-    event.preventDefault();
-    console.log("Handling on drop event on kanban list container");
-  };
-
+  // const handleDrop = (event) => {
+  //   event.preventDefault();
+  //   // console.log("On drop");
+  //   const rowData = JSON.parse(event.dataTransfer.getData("text/plain"))
+  //   onDrop(columnId, rowData)
+  // };
+  
   const handleDragOver = (event) => {
-    console.log("Handling drag over event on kanban list container")
+    event.preventDefault();
+    // console.log("Drag over")
   };
 
   return (
     <div
       className="kanban-list-container"
-      onDrop={handleDrop}
+      // onDrop={handleDrop}
       onDragOver={handleDragOver}
     >
       {children}
