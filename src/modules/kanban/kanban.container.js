@@ -29,7 +29,7 @@ export default function KanbanContainer() {
     // Ayni damdagi ko'chirilayotgan qatorni ustunini topish
     const oldColumn = columns.find(column => column.id === oldColumnId);
 
-    // Ayni damdagi ko'chirilayotgan qatorni topish
+    // Ayni damdagi ko'chirilayotgan qatorni topish     
     const currentRow = oldColumn.tasks.find(taskItem => taskItem.id === rowId);
 
     // Ayni damdagi ko'chirilayotgan qatorni oldColumn ustunidan o'chirish
