@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.kanban-column__container {
+  position: relative;
+  padding: 5px;
+  display: inline-block;
+  min-width: 300px;
+  background: #D0935A;
+  border-radius: 4px;
+}
+
+.kanban-column__component {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.kanban-column__container::before {
+  height: 5px;
+  width: 100%;
+  position: absolute;
+  display: block;
+  top: 0px;
+  left: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  border-radius: 4px 4px 0px 0px;
+  content: '';
+}
