@@ -15,4 +15,5 @@ body {
   display: flex;
   flex-wrap: nowrap;
   gap: 35px;
+  align-items: flex-start;
 }
