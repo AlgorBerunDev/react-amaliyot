@@ -15,7 +15,7 @@ export default function AddTaskContainer({ colId, logJSONData2 }) {
   
 
   async function changeTasks(text) {
-    const res = await axios.put("http://localhost:8080/columns/" + cols.id, {
+    await axios.put("http://localhost:8080/columns/" + cols.id, {
         id: cols.id,
         title: cols.title,
         tasks: [...cols.tasks, { id: uuidv4(), title: text, parentId: cols.id }]

@@ -14,5 +14,7 @@ body {
 .kanban-component {
   display: flex;
   flex-wrap: nowrap;
+  align-items: flex-start;
   gap: 35px;
+  align-items: flex-start;
 }

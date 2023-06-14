@@ -24,16 +24,35 @@ const genColumns = (columnCount = 10, rowCount = 10) => {
 };
 export default function KanbanContainer() {
   const [columns, setColumns] = useState(genColumns());
+  const handleDrop = (columnId, rowData) => {
+    const { rowId, oldColumnId } = rowData;
+    // Ayni damdagi ko'chirilayotgan qatorni ustunini topish
+    const oldColumn = columns.find(column => column.id === oldColumnId);
+
+    // Ayni damdagi ko'chirilayotgan qatorni topish
+    const currentRow = oldColumn.tasks.find(taskItem => taskItem.id === rowId);
+
+    // Ayni damdagi ko'chirilayotgan qatorni oldColumn ustunidan o'chirish
+    oldColumn.tasks = oldColumn.tasks.filter(taskItem => taskItem.id !== rowId);
+
+    // Qabul qilib oluvchi ustunga ko'chirilayotgan qatorni qo'shib qo'yish
+    const currentColumn = columns.find(column => column.id === columnId);
+    currentColumn.tasks.unshift(currentRow);
+
+    setColumns([...columns]);
+    // console.log(currentRow);
+    // console.log(`columnId: ${columnId}, rowId: ${JSON.stringify(rowData)}`);
+  };
   return (
     <div className="kanban-container">
       <div className="kanban-component">
         {columns.map(column => {
           return (
-            <KanbanColumnContainer key={column.id}>
+            <KanbanColumnContainer onDrop={handleDrop} columnId={column.id} key={column.id}>
               <KanbanColumnHeaderContainer />
               <KanbanListContainer>
                 {column.tasks.map(task => {
-                  return <KanbanListItemContainer key={task.id} />;
+                  return <KanbanListItemContainer key={task.id} rowId={task.id} oldColumnId={column.id} />;
                 })}
               </KanbanListContainer>
             </KanbanColumnContainer>
