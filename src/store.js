@@ -1,9 +1,13 @@
 import { init } from "@rematch/core";
-import { count } from "./models/count";
-import { user } from "./models/user";
 import selectPlugin from "@rematch/select";
+import { user } from "./models/user";
 
-const store = init({ models: { count, user }, plugins: [selectPlugin()] });
+const store = init({
+  models: {
+    user,
+  },
+  plugins: [selectPlugin()],
+});
 
 export const { select } = store;
 

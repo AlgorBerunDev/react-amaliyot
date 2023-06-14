@@ -48,9 +48,9 @@ export default function KanbanContainer() {
       <div className="kanban-component">
         {columns.map(column => {
           return (
-            <KanbanColumnContainer key={column.id}>
+            <KanbanColumnContainer onDrop={handleDrop} columnId={column.id} key={column.id}>
               <KanbanColumnHeaderContainer />
-              <KanbanListContainer onDrop={handleDrop} columnId={column.id}>
+              <KanbanListContainer>
                 {column.tasks.map(task => {
                   return <KanbanListItemContainer key={task.id} rowId={task.id} oldColumnId={column.id} />;
                 })}
