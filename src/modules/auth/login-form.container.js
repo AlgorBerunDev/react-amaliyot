@@ -15,6 +15,7 @@ export default function LoginFormContainer() {
       <form id="form">
         <input type="text" name="username" placeholder="Username" />
         <input type="password" name="password" placeholder="Type password" />
+        <input type="file" name="imageFile" />
         <button type="submit" onClick={handleSubmit}>
           Submit
         </button>

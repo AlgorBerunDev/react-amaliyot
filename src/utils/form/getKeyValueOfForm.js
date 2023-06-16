@@ -7,5 +7,6 @@ export default function getKeyValueOfForm(formId) {
     Object.assign(keyValue, { [key]: value });
   }
 
+  console.log(keyValue);
   return keyValue;
 }
