@@ -25,7 +25,7 @@ export default function ImagePage() {
         }}
       />
       {src && <img src={src} width={500} alt="imag" />}
-      <img src={"blob:http://localhost:3001/3de83cae-4b34-4e5f-a281-25ffaf4fb1af"} width={200} />
+
       <div style={{ border: "2px solid red" }}>
         {blobUrls.map(blobUrl => (
           <img src={blobUrl} alt="alt" key={blobUrl} width={300} />
