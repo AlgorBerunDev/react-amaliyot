@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import getKeyValueOfForm from "../../utils/form/getKeyValueOfForm";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function LoginFormContainer() {
-  const [file, setFile] = useState({})
-  const { user } = useDispatch();
+  const { posts } = useDispatch()
+  // const { posts } = useSelector(state => state);
+
+
+  const [file, setFile] = useState('')
+  const [title, setTitle] = useState('')
 
   const handleSubmit = e => {
     e.preventDefault();
-    user.login(Object.assign(getKeyValueOfForm("form"), {image : file}));
+    posts.add({ title, file });
   };
 
   const handleFileSelect = (e) => {
@@ -16,12 +19,16 @@ export default function LoginFormContainer() {
     setFile(image)
   }
 
+  const handleChangeTitle = (e) => {
+    const title = e.target.value
+    setTitle(title)
+  }
+
   return (
     <div className="login-form-container">
       <form id="form">
-        <input type="text" name="username" placeholder="Username" />
-        <input type="password" name="password" placeholder="Type password" />
-        <input type="file" onChange={handleFileSelect}/>
+        <input onChange={handleChangeTitle} type="text" placeholder="Username" />
+        <input type="file" onChange={handleFileSelect} />
         <button type="submit" onClick={handleSubmit}>
           Submit
         </button>
