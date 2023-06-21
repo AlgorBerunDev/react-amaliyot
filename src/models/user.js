@@ -4,13 +4,13 @@ export const user = {
     isLoading: false,
   },
   reducers: {
-    setUserReducer(state, { username, password }) {
-      return { ...state, current: { username, password } };
+    setUserReducer(state, { username, password, image }) {
+      return { ...state, current: { username, password, image } };
     },
   },
   effects: dispatch => ({
-    login({ username, password }) {
-      dispatch.user.setUserReducer({ username, password });
+    login({ username, password, image }) {
+      dispatch.user.setUserReducer({ username, password, image });
     },
   }),
 };
