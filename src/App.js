@@ -10,6 +10,7 @@ import store from "./store";
 // import DragAndDrop from "./pages/drag-n-drop";
 import LoginPage from "./pages/login.page";
 import UserProfileContainer from "./modules/auth/user-profile.container";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function App() {
   return (
