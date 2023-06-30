@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useDispatch } from "react-redux";
 
-export default function LoginFormContainer() {
+export default function PostappContainer() {
   const { post } = useDispatch()
 
 
@@ -14,7 +14,7 @@ export default function LoginFormContainer() {
   };
 
   return (
-    <div className="login-form-container px-5 py-4">
+    <div className="postapp-container px-5 py-4">
       <form id="form" className="col-6 d-flex">
         <input className="form-control me-3" ref={postTitle} type="text" placeholder="post title" />
         <input className="form-control me-3" ref={imgUrl} type="text" placeholder="Img url" />

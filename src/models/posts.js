@@ -20,38 +20,38 @@ const sureEdit = async (editId, title, imgUrl) => {
 }
 
 
-export const posts = {
+export const post = {
   state: {
-    current: [],
+    collection: [],
     isLoading: false,
   },
   reducers: {
-    setUserReducer(state, data) {
-      return { ...state, current: data };
+    setPostReducer(state, collection) {
+      return { ...state, collection };
     },
   },
   effects: dispatch => ({
-    async add({ title, imgUrl }) {
+    async addPost({ title, imgUrl }) {
       const data = await createPost({ title, imgUrl })
       const get = await getPosts()
-      dispatch.posts.setUserReducer(get);
+      dispatch.post.setPostReducer(get);
     },
 
-    async get() {
+    async fetchPosts() {
       const data = await getPosts()
-      dispatch.posts.setUserReducer(data);
+      dispatch.post.setPostReducer(data);
     },
 
-    async delete(id) {
+    async deletePost(id) {
       const data = await sureDelete(id)
       const get = await getPosts()
-      dispatch.posts.setUserReducer(get);
+      dispatch.post.setPostReducer(get);
     },
 
-    async edit({ editId, title, imgUrl }) {
+    async updatePost({ editId, title, imgUrl }) {
       const data = await sureEdit(editId, title, imgUrl)
       const get = await getPosts()
-      dispatch.posts.setUserReducer(get);
+      dispatch.post.setPostReducer(get);
     },
   }),
 };

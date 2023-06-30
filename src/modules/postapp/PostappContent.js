@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PostManager from "../../repositories/PostManager";
 
-export default function UserProfileContainer() {
+export default function PostappContentContainer() {
   const { post } = useSelector(state => state);
   const { post: defaultRenderData } = useDispatch()
 
